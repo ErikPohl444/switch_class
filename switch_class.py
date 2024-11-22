@@ -15,7 +15,6 @@ def switch_compare(
         switch_instance.add_switch_clause(*i)
     yield_fun = switch_instance.execute_switch
     yield yield_fun
-    yield_fun = None
 
 
 class switch:
@@ -63,11 +62,10 @@ class switch:
         '''
         retval = []
         for decision_clause in self.decision_clauses:
-            switch_condition, \
-            result, \
-            break_on_match = decision_clause['switch_condition'], \
-                             decision_clause['result'], \
-                             decision_clause['break_on_match']
+            switch_condition, result, break_on_match = (
+                decision_clause['switch_condition'],
+                decision_clause['result'],
+                decision_clause['break_on_match'])
             if compare_value in switch_condition:
                 retval.append(result)
                 if break_on_match:
