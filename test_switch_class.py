@@ -1,4 +1,3 @@
-import pytest
 from switch_class import switch
 
 
